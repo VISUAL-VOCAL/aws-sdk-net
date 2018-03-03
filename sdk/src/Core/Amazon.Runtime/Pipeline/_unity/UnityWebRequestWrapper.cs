@@ -187,6 +187,17 @@ namespace Amazon.Runtime.Internal
         /// <returns></returns>
         public AsyncOperation Send()
         {
+            // Force disable chunked transfers Work around this bug:
+            // https://github.com/aws/aws-sdk-net/issues/820
+            // 
+            // Also discussed at here:
+            // https://answers.unity.com/questions/1450373/set-content-length-header-for-unitywebrequest-post.html
+            // https://github.com/aws/aws-sdk-net/issues/835
+            // 
+            // Might be related:
+            // https://github.com/aws/aws-cli/issues/602
+            ((UnityEngine.Networking.UnityWebRequest)unityWebRequestInstance).chunkedTransfer = false;
+
             return (AsyncOperation)sendMethod.Invoke(unityWebRequestInstance, null);
         }
 
