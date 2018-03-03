@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +8,8 @@
     <OutputType>Library</OutputType>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AssemblyName>AWSSDK.SecurityToken</AssemblyName>
     <RootNamespace>Amazon.SecurityToken</RootNamespace>
     <BaseIntermediateOutputPath>obj\unity</BaseIntermediateOutputPath>
@@ -62,11 +63,11 @@
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\windowsstandalonesupport\Managed\UnityEngine.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Apps\Unity\2017.3.1p2\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Custom\*.cs">
@@ -98,8 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\AWSSDK.Core.Unity.csproj">
-        <Project>{5A8B25C1-3D58-4BB6-BF7D-77AD818D9EAD}</Project>
-        <Name>AWSSDK.Core.Unity</Name>
+      <Project>{5A8B25C1-3D58-4BB6-BF7D-77AD818D9EAD}</Project>
+      <Name>AWSSDK.Core.Unity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
