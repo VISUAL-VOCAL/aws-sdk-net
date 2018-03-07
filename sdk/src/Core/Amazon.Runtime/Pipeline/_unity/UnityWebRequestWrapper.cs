@@ -196,7 +196,14 @@ namespace Amazon.Runtime.Internal
             // 
             // Might be related:
             // https://github.com/aws/aws-cli/issues/602
-            ((UnityEngine.Networking.UnityWebRequest)unityWebRequestInstance).chunkedTransfer = false;
+            if (unityWebRequestInstance is UnityEngine.Networking.UnityWebRequest)
+            {
+                var request = unityWebRequestInstance as UnityEngine.Networking.UnityWebRequest;
+                if (request.method == UnityEngine.Networking.UnityWebRequest.kHttpVerbPUT)
+                {
+                    request.chunkedTransfer = false;
+                }
+            }
 
             return (AsyncOperation)sendMethod.Invoke(unityWebRequestInstance, null);
         }
